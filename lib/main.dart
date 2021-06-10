@@ -21,35 +21,35 @@ class DicePage extends StatelessWidget {
     return Center(
       child: Row(
         children: [
-          DiceImage(
-            image: 'dice1.png',
-          ),
-          DiceImage(
-            image: 'dice2.png',
-          ),
+          DiceImage(),
+          DiceImage(),
         ],
       ),
     );
   }
 }
 
-class DiceImage extends StatelessWidget {
-  final String image;
-  const DiceImage({Key key, this.image}) : super(key: key);
+class DiceImage extends StatefulWidget {
+  @override
+  _DiceImageState createState() => _DiceImageState();
+}
+
+class _DiceImageState extends State<DiceImage> {
+  int imageNum = 1;
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
-        child: TextButton(
-      onPressed: () {
-        print('Btn pressed');
-      },
-      onLongPress: () {
-        print('Long pressed');
-      },
-      child: Image.asset(
-        'images/' + image,
+      child: TextButton(
+        onPressed: () {
+          setState(() {
+            imageNum = 5;
+          });
+        },
+        child: Image.asset(
+          'images/dice$imageNum.png',
+        ),
       ),
-    ));
+    );
   }
 }
