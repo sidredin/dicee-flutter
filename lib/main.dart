@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -35,7 +37,7 @@ class DiceImage extends StatefulWidget {
 }
 
 class _DiceImageState extends State<DiceImage> {
-  int imageNum = 1;
+  int imageNum = Random().nextInt(6) + 1;
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +45,7 @@ class _DiceImageState extends State<DiceImage> {
       child: TextButton(
         onPressed: () {
           setState(() {
-            imageNum = 5;
+            imageNum = Random().nextInt(6) + 1;
           });
         },
         child: Image.asset(
