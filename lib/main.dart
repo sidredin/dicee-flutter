@@ -40,8 +40,13 @@ class DiceImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-        child: Padding(
-      padding: const EdgeInsets.all(16.0),
+        child: TextButton(
+      onPressed: () {
+        print('Btn pressed');
+      },
+      onLongPress: () {
+        print('Long pressed');
+      },
       child: Image.asset(
         'images/' + image,
       ),
